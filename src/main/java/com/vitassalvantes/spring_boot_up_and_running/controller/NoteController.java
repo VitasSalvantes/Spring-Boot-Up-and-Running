@@ -24,6 +24,8 @@
 package com.vitassalvantes.spring_boot_up_and_running.controller;
 
 import com.vitassalvantes.spring_boot_up_and_running.domain.Note;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ import java.util.Optional;
  * The controller provides note management.
  *
  * @author Ivan Bobrov
- * @version 1.4.1
+ * @version 1.5.1
  * @see Note
  */
 @RestController
@@ -77,5 +79,19 @@ public class NoteController {
     @DeleteMapping("/{id}")
     void deleteNoteById(@PathVariable final String id) {
         notes.removeIf(note -> note.id().equals(id));
+    }
+
+    @PutMapping("/{id}")
+    ResponseEntity<Note> putNote(@PathVariable final String id, @RequestBody final Note newNote) {
+        int noteIndex = -1;
+
+        for (Note note : notes) {
+            if (note.id().equals(id)) {
+                noteIndex = notes.indexOf(note);
+                notes.set(noteIndex, newNote);
+            }
+        }
+
+        return noteIndex == -1 ? new ResponseEntity<>(postNote(newNote), HttpStatus.CREATED) : new ResponseEntity<>(newNote, HttpStatus.OK);
     }
 }
