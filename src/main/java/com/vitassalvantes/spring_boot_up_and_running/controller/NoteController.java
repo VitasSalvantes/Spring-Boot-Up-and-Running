@@ -25,17 +25,19 @@ package com.vitassalvantes.spring_boot_up_and_running.controller;
 
 import com.vitassalvantes.spring_boot_up_and_running.domain.Note;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The controller provides note management.
  *
  * @author Ivan Bobrov
- * @version 1.1.1
+ * @version 1.2.1
  * @see Note
  */
 @RestController
@@ -56,5 +58,16 @@ public class NoteController {
     @GetMapping
     Iterable<Note> getNotes() {
         return notes;
+    }
+
+    @GetMapping("/{id}")
+    Optional<Note> getNoteById(@PathVariable final String id) {
+        for (Note note : notes) {
+            if (note.id().equals(id)) {
+                return Optional.of(note);
+            }
+        }
+
+        return Optional.empty();
     }
 }
