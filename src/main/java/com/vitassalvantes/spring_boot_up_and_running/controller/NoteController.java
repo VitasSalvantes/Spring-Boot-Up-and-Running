@@ -34,7 +34,7 @@ import java.util.Optional;
  * The controller provides note management.
  *
  * @author Ivan Bobrov
- * @version 1.2.1
+ * @version 1.4.1
  * @see Note
  */
 @RestController
@@ -72,5 +72,10 @@ public class NoteController {
     Note postNote(@RequestBody final Note note) {
         notes.add(note);
         return note;
+    }
+
+    @DeleteMapping("/{id}")
+    void deleteNoteById(@PathVariable final String id) {
+        notes.removeIf(note -> note.id().equals(id));
     }
 }
