@@ -4,9 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/VitasSalvantes/SimplePrograms)](https://github.com/VitasSalvantes/SimplePrograms/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/VitasSalvantes/SimplePrograms)](https://github.com/VitasSalvantes/SimplePrograms/issues)
 
-This repository contains the code I wrote while
-reading ["Spring Boot: Up and Running" by Mark Heckler](https://www.oreilly.com/library/view/spring-boot-up/9781492076971/)
-.
+This is a simple REST API from the 3rd chapter of the book.
 
 ## Table of contents
 
@@ -20,18 +18,31 @@ reading ["Spring Boot: Up and Running" by Mark Heckler](https://www.oreilly.com/
 
 ## How does it work
 
-The main purpose of this repository is to track my progress in learning the Spring framework from "Spring Boot: Up and
-Running" by Mark Heckler. As I read the book, I am going to upload some code examples.
-
-There are branches for each chapter of the book in which I had to write some code. The template of all programs is in
-the main
-branch.
+There are some methods to get, post, put and delete immutable notes.
 
 ## Screenshots
 
 *All screenshots are relevant for version 1.0.0*
 
-![The book cover](https://learning.oreilly.com/library/cover/9781492076971/250w/)
+Get all notes:
+
+![get all notes](/screenshots/get_all_notes.png)
+
+Post a note:
+
+![post note](/screenshots/post_note.png)
+
+Put a note:
+
+![put note](/screenshots/put_note.png)
+
+Get a note by id:
+
+![get a note by id](/screenshots/get_note_by_id.png)
+
+Delete a note:
+
+![delete note](/screenshots/delete_note.png)
 
 ## Technologies
 
