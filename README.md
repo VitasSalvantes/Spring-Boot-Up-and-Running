@@ -66,4 +66,4 @@ See more on [WakaTime](https://wakatime.com/@VitasSalvantes/projects/vmzomextwg)
 
 ## How to contribute
 
-This repository is not designed for contributing as it follows other [purposes](#how-does-it-work).
+This repository is not designed for contributing because it follows other [purposes](#how-does-it-work).
