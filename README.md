@@ -2,6 +2,7 @@
 
 ![current version](https://img.shields.io/badge/current_version-1.0.0-green)
 [![GitHub license](https://img.shields.io/github/license/VitasSalvantes/SimplePrograms)](https://github.com/VitasSalvantes/SimplePrograms/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/VitasSalvantes/SimplePrograms)](https://github.com/VitasSalvantes/SimplePrograms/issues)
 
 This repository contains the code I wrote while
 reading ["Spring Boot: Up and Running" by Mark Heckler](https://www.oreilly.com/library/view/spring-boot-up/9781492076971/)
