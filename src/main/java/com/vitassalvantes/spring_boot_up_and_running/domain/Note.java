@@ -23,13 +23,30 @@
 
 package com.vitassalvantes.spring_boot_up_and_running.domain;
 
+import java.util.UUID;
+
 /**
  * The class represents an immutable note.
  *
  * @param id   the unique identifier of the note.
  * @param text the contents of the note.
  * @author Ivan Bobrov
- * @version 1.0.0
+ * @version 1.1.0
  */
 public record Note(String id, String text) {
+
+    public Note {
+        validateString(id);
+        validateString(text);
+    }
+
+    public Note(final String text) {
+        this(UUID.randomUUID().toString(), text);
+    }
+
+    private void validateString(final String string) {
+        if (string == null) {
+            throw new IllegalArgumentException("The string must not be null");
+        }
+    }
 }
