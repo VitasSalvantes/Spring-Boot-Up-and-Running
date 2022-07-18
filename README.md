@@ -53,9 +53,9 @@ Development of the project began on **July 17, 2022**.
 
 ## Project statistics
 
-[![wakatime](...)](...)
+[![wakatime](https://wakatime.com/badge/github/VitasSalvantes/Spring-Boot-Up-and-Running.svg)](https://wakatime.com/badge/github/VitasSalvantes/Spring-Boot-Up-and-Running)
 
-See more on [WakaTime](...).
+See more on [WakaTime](https://wakatime.com/@VitasSalvantes/projects/vmzomextwg).
 
 ## How to install
 
