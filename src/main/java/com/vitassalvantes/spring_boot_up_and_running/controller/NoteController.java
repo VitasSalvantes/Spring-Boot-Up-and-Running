@@ -24,6 +24,7 @@
 package com.vitassalvantes.spring_boot_up_and_running.controller;
 
 import com.vitassalvantes.spring_boot_up_and_running.domain.Note;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,21 +35,26 @@ import java.util.List;
  * The controller provides note management.
  *
  * @author Ivan Bobrov
- * @version 1.0.0
+ * @version 1.1.1
  * @see Note
  */
 @RestController
 @RequestMapping("/notes")
 public class NoteController {
 
-    private final List<Note> noteList;
+    private final List<Note> notes;
 
     public NoteController() {
-        noteList = new ArrayList<>();
-        noteList.addAll(List.of(
+        notes = new ArrayList<>();
+        notes.addAll(List.of(
                 new Note("My first note"),
                 new Note("My second note"),
                 new Note("My third note")
         ));
+    }
+
+    @GetMapping
+    Iterable<Note> getNotes() {
+        return notes;
     }
 }
