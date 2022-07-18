@@ -24,10 +24,7 @@
 package com.vitassalvantes.spring_boot_up_and_running.controller;
 
 import com.vitassalvantes.spring_boot_up_and_running.domain.Note;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +34,7 @@ import java.util.Optional;
  * The controller provides note management.
  *
  * @author Ivan Bobrov
- * @version 1.2.1
+ * @version 1.3.1
  * @see Note
  */
 @RestController
@@ -69,5 +66,11 @@ public class NoteController {
         }
 
         return Optional.empty();
+    }
+
+    @PostMapping
+    Note postNote(@RequestBody final Note note) {
+        notes.add(note);
+        return note;
     }
 }
