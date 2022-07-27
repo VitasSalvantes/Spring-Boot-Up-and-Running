@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/VitasSalvantes/SimplePrograms)](https://github.com/VitasSalvantes/SimplePrograms/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/VitasSalvantes/SimplePrograms)](https://github.com/VitasSalvantes/SimplePrograms/issues)
 
-This is a simple REST API from the 3rd chapter of the book.
+This is a simple REST API from the 4th chapter of the book.
 
 ## Table of contents
 
@@ -18,7 +18,7 @@ This is a simple REST API from the 3rd chapter of the book.
 
 ## How does it work
 
-There are some methods to get, post, put and delete immutable notes.
+There are some methods to get, post, put and delete immutable notes. It works with the H2 database.
 
 ## Screenshots
 
@@ -49,6 +49,8 @@ Delete a note:
 - [Java](https://www.oracle.com/java/) ([Temurin Open JDK version 17.0.2](https://adoptium.net/))
 
 - [Maven](https://maven.apache.org/)
+
+- [H2 Database](http://h2database.com/html/main.html)
 
 - [Spring](https://spring.io/)
 
