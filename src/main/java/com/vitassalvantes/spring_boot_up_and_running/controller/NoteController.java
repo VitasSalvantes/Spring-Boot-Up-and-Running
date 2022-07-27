@@ -23,75 +23,56 @@
 
 package com.vitassalvantes.spring_boot_up_and_running.controller;
 
-import com.vitassalvantes.spring_boot_up_and_running.domain.Note;
+import com.vitassalvantes.spring_boot_up_and_running.entity.Note;
+import com.vitassalvantes.spring_boot_up_and_running.repository.NoteRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 /**
  * The controller provides note management.
  *
  * @author Ivan Bobrov
- * @version 1.5.1
+ * @version 1.6.1
  * @see Note
  */
 @RestController
 @RequestMapping("/notes")
 public class NoteController {
 
-    private final List<Note> notes;
+    private final NoteRepository noteRepository;
 
-    public NoteController() {
-        notes = new ArrayList<>();
-        notes.addAll(List.of(
-                new Note("My first note"),
-                new Note("My second note"),
-                new Note("My third note")
-        ));
+
+    public NoteController(final NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
     }
 
     @GetMapping
     Iterable<Note> getNotes() {
-        return notes;
+        return noteRepository.findAll();
     }
 
     @GetMapping("/{id}")
     Optional<Note> getNoteById(@PathVariable final String id) {
-        for (Note note : notes) {
-            if (note.id().equals(id)) {
-                return Optional.of(note);
-            }
-        }
-
-        return Optional.empty();
+        return noteRepository.findById(id);
     }
 
     @PostMapping
     Note postNote(@RequestBody final Note note) {
-        notes.add(note);
-        return note;
+        return noteRepository.save(note);
     }
 
     @DeleteMapping("/{id}")
     void deleteNoteById(@PathVariable final String id) {
-        notes.removeIf(note -> note.id().equals(id));
+        noteRepository.deleteById(id);
     }
 
     @PutMapping("/{id}")
     ResponseEntity<Note> putNote(@PathVariable final String id, @RequestBody final Note newNote) {
-        int noteIndex = -1;
-
-        for (Note note : notes) {
-            if (note.id().equals(id)) {
-                noteIndex = notes.indexOf(note);
-                notes.set(noteIndex, newNote);
-            }
-        }
-
-        return noteIndex == -1 ? new ResponseEntity<>(postNote(newNote), HttpStatus.CREATED) : new ResponseEntity<>(newNote, HttpStatus.OK);
+        return noteRepository.existsById(id)
+                ? new ResponseEntity<>(noteRepository.save(newNote), HttpStatus.OK)
+                : new ResponseEntity<>(postNote(newNote), HttpStatus.CREATED);
     }
 }
