@@ -21,27 +21,58 @@
  * THE SOFTWARE.
  */
 
-package com.vitassalvantes.spring_boot_up_and_running.domain;
+package com.vitassalvantes.spring_boot_up_and_running.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
 /**
  * The class represents an immutable note.
  *
- * @param id   the unique identifier of the note.
- * @param text the contents of the note.
  * @author Ivan Bobrov
- * @version 1.1.0
+ * @version 1.2.0
  */
-public record Note(String id, String text) {
+@Entity
+public class Note {
 
-    public Note {
+    @Id
+    private String id;
+    private String text;
+
+    public Note() {
+    }
+
+    public Note(final String id, final String text) {
         validateString(id);
         validateString(text);
+
+        this.id = id;
+        this.text = text;
     }
 
     public Note(final String text) {
         this(UUID.randomUUID().toString(), text);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(final String id) {
+        validateString(id);
+
+        this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(final String text) {
+        validateString(text);
+
+        this.text = text;
     }
 
     private void validateString(final String string) {
