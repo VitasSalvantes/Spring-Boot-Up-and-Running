@@ -34,7 +34,8 @@ import java.util.List;
  * The class creates sample data.
  *
  * @author IvanBobrov
- * @version 1.0.0
+ * @version 1.0.1
+ * @see Note
  */
 @Component
 public class DataLoader {

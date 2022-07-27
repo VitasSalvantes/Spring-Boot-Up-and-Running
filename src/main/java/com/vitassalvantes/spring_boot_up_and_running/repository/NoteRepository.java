@@ -30,7 +30,8 @@ import org.springframework.data.repository.CrudRepository;
  * The interface provides interaction with the database.
  *
  * @author Ivan Bobrov
- * @version 1.0.0
+ * @version 1.0.1
+ * @see Note
  */
 public interface NoteRepository extends CrudRepository<Note, String> {
 }
