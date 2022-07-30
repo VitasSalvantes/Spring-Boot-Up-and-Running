@@ -1,7 +1,7 @@
 # Spring Boot Up and Running
 
 ![current version](https://img.shields.io/badge/current_version-1.0.0-green)
-[![GitHub license](https://img.shields.io/github/license/VitasSalvantes/Spring-Boot-Up-and-Running)](https://github.com/VitasSalvantes/Spring-Boot-Up-and-Running/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/VitasSalvantes/Spring-Boot-Up-and-Running)](https://github.com/VitasSalvantes/Spring-Boot-Up-and-Running/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/VitasSalvantes/Spring-Boot-Up-and-Running)](https://github.com/VitasSalvantes/Spring-Boot-Up-and-Running/issues)
 
 This repository contains the code I wrote while
